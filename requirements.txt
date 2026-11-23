@@ -1,0 +1,6 @@
+# Python dependencies for cabinet_perception
+numpy<2
+scipy>=1.8.0
+opencv-python>=4.5.0
+PyYAML>=6.0
+pytest>=7.0.0

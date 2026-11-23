@@ -1,0 +1,14 @@
+# Prior for the synthetic "grid" cabinet (core/synthetic.py grid_cabinet): 3 levels x 3 columns.
+# dividers_x is deliberately left out so the two physical dividers are DETECTED;
+# `columns: 3` only matters on a level where none is seen.
+cabinet:
+  frame_id: cabinet
+  parent_frame: map
+  pose: {xyz: [0.0, 0.0, 0.0], rpy: [0.0, 0.0, 0.0]}
+  width: 1.20
+  depth: 0.35
+  height: 1.23
+  board_thickness: 0.018
+  boards_z: [0.06, 0.45, 0.84]
+  columns: 3
+  top_is_shelf: false

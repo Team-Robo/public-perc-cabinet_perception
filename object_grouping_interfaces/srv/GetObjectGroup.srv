@@ -1,0 +1,21 @@
+# Where does the held object belong in the cabinet?
+# Semantic side only: returns a RANKED list so the geometric side can fall back
+# to the next group without another round trip when a shelf has no free space.
+
+DetectedObject                 held_object   # class_name/category/confidence may be empty (unrecognised)
+sensor_msgs/Image              held_crop     # crop or frame of the held object: rgb8 | bgr8, or rgba8 | bgra8
+                                             # with alpha = segmentation mask (255 object, 0 background)
+CabinetScene                   scene
+float32                        timeout_sec   # 0 = server default
+---
+uint8 MATCH=0
+uint8 NO_MATCH=1          # confident that no group fits -> place in an empty shelf area (5.2 rule 10)
+uint8 FAILED=2            # method could not run (model error, bad input, timeout)
+
+uint8        status
+GroupMatch[] candidates   # sorted by score desc; filled even on NO_MATCH (for logging)
+float32      confidence   # [0, 1]; low confidence stays MATCH (flagged), never silently NO_MATCH
+string       held_label   # e.g. "lemon (fruits)"
+string       method       # "cascade [stage: lookup | fusion(...) | ... -> vlm]": the stage that produced the answer
+string       rationale    # spoken sentence for the top decision
+float32      latency_ms

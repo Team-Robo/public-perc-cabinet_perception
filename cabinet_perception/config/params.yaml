@@ -1,0 +1,12 @@
+cabinet_perception:
+  ros__parameters:
+    color_topic: /camera/camera/color/image_raw
+    depth_topic: /camera/camera/aligned_depth_to_color/image_raw
+    camera_info_topic: /camera/camera/color/camera_info
+    instances_topic: /perc/grasp/instances
+    scene_topic: /perception/cabinet/scene
+    require_instances: true
+    depth_scale: 0.001
+    tf_timeout: 0.3
+    buffer_frames: 30
+    image_qos: reliable          # reliable | sensor (best effort)

@@ -1,0 +1,23 @@
+# Setup-day cabinet prior (design note §2, option A). Measure the announced
+# cabinet on the setup days and replace these DUMMY values.
+# Cabinet frame: x right (facing the cabinet), y into the cabinet, z up,
+# origin = bottom-front-left outer corner. Metres.
+cabinet:
+  frame_id: cabinet
+  parent_frame: map
+  pose:                       # map -> cabinet, published as a static TF by the launch file
+    xyz: [0.0, 0.0, 0.0]
+    rpy: [0.0, 0.0, 0.0]
+  width: 0.80                 # outer
+  depth: 0.35
+  height: 1.60
+  board_thickness: 0.018
+  boards_z: [0.08, 0.42, 0.76, 1.10, 1.44]   # board TOP surfaces, bottom first; [] = detect only
+  # Columns. Measured physical dividers (x of each divider's centre, left to right):
+  #   dividers_x: [0.40]                   same on every level
+  #   dividers_x: {1: [0.40], 2: [0.27, 0.53]}   per level (unlisted levels -> `columns`)
+  # null = detect dividers per level; where none is seen, split into `columns`
+  # equal virtual columns, each split moved into a gap between objects.
+  dividers_x: null
+  columns: 2                  # 2 = left/right (the rulebook's "each side of the shelves")
+  top_is_shelf: false         # the roof is not a shelf

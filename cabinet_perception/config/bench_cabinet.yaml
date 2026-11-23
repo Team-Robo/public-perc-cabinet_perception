@@ -1,0 +1,14 @@
+# Bench-test cabinet (2 x 2 wall cabinet on the dev laptop's desk), values from the D455
+# estimates - re-measure with a tape. Same format as cabinet_prior.yaml.
+# Cabinet frame: x right (facing it), y into it, z up, origin = bottom-front-left corner. Metres.
+cabinet:
+  frame_id: cabinet
+  parent_frame: map
+  pose: {xyz: [0.0, 0.0, 0.0], rpy: [0.0, 0.0, 0.0]}   # unused with localize:=true
+  width: 0.96             # outer; the sides snap to the side walls this far apart
+  depth: 0.31
+  height: 0.88
+  board_thickness: 0.018
+  boards_z: [0.08, 0.46]  # board TOP surfaces, bottom first (bottom one sets the height reference)
+  dividers_x: [0.48]      # the middle wall
+  top_is_shelf: false
